@@ -20,6 +20,7 @@ const Profile = () => {
                     }
                 })
                 .catch((error)=>{
+                    console.log("ERROR", error);
                     SwalError(error?.message);
                 })
         };
@@ -42,6 +43,7 @@ const Profile = () => {
                 }
             })
             .catch((error)=>{
+                console.log("ERROR", error);
                 SwalError(error?.message);
             });
     }
