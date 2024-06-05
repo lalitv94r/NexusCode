@@ -19,6 +19,8 @@
 
 	--brandColor:#000;
 	--navBarLinkColor:#5A5A5A;
+
+	--cardBody:#FFF;
 }
 
 
@@ -61,6 +63,10 @@ h5 { font-size: 20px;}
 h6 { font-size: 16px;}
 
 textarea { resize: vertical; }
+
+.m-r-15{
+	margin-right: 15px !important;
+}
 
 .s1{
 	background-color: var(--mainColor);
@@ -347,17 +353,17 @@ textarea { resize: vertical; }
 }
 
 .post-preview{
-	background-color: #fff;
+	background-color: var(--cardBody);
 	padding:15px;
 }
 
 .post-title{
-	color:black;
+	color:var(--mainText);
 	margin: 0;
 }
 
 .post-intro{
-	color:#4b5156;
+	color:var(--secondaryText);
 	font-size: 14px;
 	height: 70px;
 }
@@ -440,7 +446,7 @@ textarea { resize: vertical; }
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: flex-start;
+	justify-content: center;
 	align-self: center;
 }
 
