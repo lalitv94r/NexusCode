@@ -2,12 +2,12 @@ const ENVIRONMENT_UAT = 'uat';
 const ENVIRONMENT_PROD = 'production';
 
 const appSettings = {
-    environment: ENVIRONMENT_UAT,
-    // environment: ENVIRONMENT_PROD,
+    // environment: ENVIRONMENT_UAT,
+    environment: ENVIRONMENT_PROD,
 }
 
-const UAT_BASE_URL = 'http://16.16.217.208/api';
-const PROD_BASE_URL = '';
+const UAT_BASE_URL = 'https://nexuscode.in/api';
+const PROD_BASE_URL = 'https://nexuscode.in/api';
 
 const getBaseURL=()=>{
     switch(appSettings?.environment){
