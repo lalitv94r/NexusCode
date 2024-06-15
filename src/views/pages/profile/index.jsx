@@ -59,7 +59,7 @@ const Profile = () => {
             <section className="s1">
                 <div className="main-container">
                     <div className="greeting-wrapper">
-                        <h1>Who I Am</h1>
+                        <h2 className="page-title"><b>Discover My Story</b></h2>
                     </div>
                     <div className="intro-wrapper">
                         <div className="nav-wrapper">
@@ -121,26 +121,25 @@ const Profile = () => {
                             <hr />
                             <h4>TOP EXPERTISE</h4>
                             <p>Fullstack developer with primary focus on Django + ReactJs and Django + React-Native: <a target="_blank" rel="noreferrer" href={require('../../../resources/files/resume.pdf')}>Download Resume</a></p>
-
-                            <div id="skills">
-                                <ul>
-                                    <li>Python</li>
-                                    <li>Django</li>
-                                    <li>ReactJs</li>
-                                </ul>
-                                <ul>
-                                    <li>React-Native</li>
-                                    <li>JavaScript</li>
-                                    <li>NextJs</li>
-                                </ul>
-                                <ul>
-                                    <li>Angular</li>
-                                    <li>NativeScript</li>
-                                    <li>HTML/CSS</li>
-                                </ul>
-
+                            
+                            <div id="preview-shadow">
+                                <div id="preview">
+                                    <div id="corner-tl" className="corner"></div>
+                                    <div id="corner-tr" className="corner"></div>
+                                    <ul>
+                                        <li>Python</li>
+                                        <li>Django</li>
+                                        <li>ReactJs</li>
+                                        <li>React-Native</li>
+                                        <li>JavaScript</li>
+                                        <li>NextJs</li>
+                                        <li>Angular</li>
+                                        <li>HTML/CSS</li>
+                                    </ul>
+                                    <div id="corner-br" className="corner"></div>
+                                    <div id="corner-bl" className="corner"></div>
+                                </div>
                             </div>
-
                         </div>
 
 
@@ -205,11 +204,13 @@ const Profile = () => {
                             value={message}
                             onChange={(e)=>setMessage(e?.target?.value)}
                         />
-                        <button id="submit-btn" type="button"
-                            onClick={()=>handleFormSubmit()}
-                        >
-                            Submit
-                        </button>
+                        <div id="btn-container">
+                            <button id="submit-btn" type="button"
+                                onClick={()=>handleFormSubmit()}
+                            >
+                                Submit
+                            </button>
+                        </div>
                     </form>
                 </div>
             </section>
