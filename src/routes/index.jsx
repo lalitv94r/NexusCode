@@ -1,19 +1,26 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Layout from "../views/pages/layout";
-import PageNotFound from "../views/pages/pageNotFound";
+
+const Layout = React.lazy(()=>import("../views/layout"));
+const PageNotFound = React.lazy(()=>import("../views/pages/pageNotFound"));
+const ProjectDetail = React.lazy(()=>import("../views/pages/projectDetails"));
 
 const DefaultRouters = () => {
     return (
         <BrowserRouter>
-            <Routes>
-                <Route
-                    path="/" element={<Layout/>}
-                />
-                <Route
-                    path="*" element={<PageNotFound/>}
-                />
-            </Routes>
+            <Suspense fallback={(<h1>Loading...</h1>)}>
+                <Routes>
+                    <Route
+                        path="/" element={<Layout/>}
+                    />
+                    <Route
+                        path="/project-detail" element={<ProjectDetail/>}
+                    />
+                    <Route
+                        path="*" element={<PageNotFound/>}
+                    />
+                </Routes>
+            </Suspense>
         </BrowserRouter>
     )
 }

@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import fetchRequest from "../../../network";
 import { SwalError, SwalSuccess } from "../../../utils/appAlerts";
 import { setTheme } from "../../../utils/appTheme";
 import './styles.css';
 
 const Profile = () => {
+
+    const navigate = useNavigate();
+
     const [ name, setName ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ message, setMessage ] = useState('');
@@ -164,7 +168,11 @@ const Profile = () => {
                                             <h6 className="post-title">{i?.project_name}</h6>
                                             <p className="post-intro">{i?.short_description}</p>
                                             <div className="card-more">
-                                                <a href="/">Read More</a>
+                                                <a href="/project-detail" onClick={()=>navigate("/project-detail",{
+                                                    state:{
+                                                        id:i?.id
+                                                    }
+                                                })}>Read More</a>
                                             </div>
                                         </div>
                                     </div>

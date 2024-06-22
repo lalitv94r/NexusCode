@@ -13,6 +13,9 @@ const setTheme = (theme) => {
         document.getElementById('root').style.setProperty('--brandColor', '#fff');
         document.getElementById('root').style.setProperty('--navBarLinkColor', '#c1c1c1');
         document.getElementById('root').style.setProperty('--cardBody', '#192734');
+        document.getElementById('root').style.setProperty('--ndfFourOFour', "#111921")
+        document.getElementById('root').style.setProperty('--ndfMsg', '#fff')
+        document.getElementById('root').style.setProperty('--ndfBackgroud', '#111921')
     }else {
         document.getElementById('root').style.setProperty('--mainColor', '#eaeaea');
         document.getElementById('root').style.setProperty('--secondaryColor', '#fff');
@@ -27,6 +30,9 @@ const setTheme = (theme) => {
         document.getElementById('root').style.setProperty('--brandColor', '#000');
         document.getElementById('root').style.setProperty('--navBarLinkColor', '#5A5A5A');
         document.getElementById('root').style.setProperty('--cardBody', '#FFF');
+        document.getElementById('root').style.setProperty('--ndfFourOFour', "#fff")
+        document.getElementById('root').style.setProperty('--ndfMsg', '#ff005a')
+        document.getElementById('root').style.setProperty('--ndfBackgroud', '#eaeaea')
     }
     localStorage.setItem('theme', theme);
 }
