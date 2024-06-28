@@ -43,7 +43,11 @@ const ProjectDetail=()=>{
                 title={project?.project_name}
                 navLink={navLinks}
                 content={()=>(
-                    <img className="banner-img" src={project?.image} alt="banner-img" />
+                    <div className="main-container-second">
+                        {/* <div className="intro-wrapper"> */}
+                            <img className="banner-img" src={project?.image} alt="banner-img" />
+                        {/* </div> */}
+                    </div>
                 )}
             />
             <ThemeContentSection
