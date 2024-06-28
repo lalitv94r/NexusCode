@@ -470,17 +470,6 @@ textarea { resize: vertical; }
 	margin-bottom: 40px;
 }
 
-.link-button{
-	margin-top: 10px;
-	text-decoration: none;
-	color: #17a2b8;
-	border: 1px solid #17a2b8;
-	border-radius: 4px;
-	background-color: transparent;
-	width: '100%';
-	cursor: pointer;
-}
-
 @media screen and (max-width: 1200px){
 	.main-container{
 		width: 95%;

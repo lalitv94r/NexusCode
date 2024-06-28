@@ -1,19 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import fetchRequest from "../../../network";
-import { SwalError, SwalSuccess } from "../../../utils/appAlerts";
+import { SwalError } from "../../../utils/appAlerts";
 import { setTheme } from "../../../utils/appTheme";
+import {
+    ThemeBannerSection,
+    ThemeContactForm,
+    ThemeContentSection,
+    ThemeFooterSection
+} from "../../theme";
 import './styles.css';
 
 const Profile = () => {
 
     const navigate = useNavigate();
 
-    const [ name, setName ] = useState('');
-    const [ email, setEmail ] = useState('');
-    const [ message, setMessage ] = useState('');
     const [ projects, setProjects ] = useState([]);
     const [ sliceIndex, setSliceIndex ] = useState(3);
+
+    const navLinks = [
+        {
+            label:"Projects",
+            link:"#project-list",
+            labelClass:"m-r-15" 
+        },
+        {
+            label:"Contact",
+            link:"#contact",
+            labelClass:""
+        }
+    ];
 
     useEffect(()=>{
         const fetchProjects=async()=>{
@@ -31,57 +47,13 @@ const Profile = () => {
         fetchProjects();
     },[]);
 
-    const handleFormSubmit=()=>{
-        let body = {
-            "name":name,
-            "email":email,
-            "description":message
-        }
-        fetchRequest.post('/accounts/contactus/', body)
-            .then((response)=>{
-                if (response?.Status === 202){
-                    clearAll();
-                    SwalSuccess("Thank you for your message. We will get back to you soon.");
-                }else{
-                    SwalError(response?.Data);
-                }
-            })
-            .catch((error)=>{
-                console.log("ERROR", error);
-                SwalError(error?.message);
-            });
-    }
-
-    const clearAll=()=>{
-        setName('');
-        setEmail('');
-        setMessage('');
-    }
-
     return (
         <div>
-            <section className="s1">
-                <div className="main-container">
-                    <div className="greeting-wrapper">
-                        <h2 className="page-title"><b>Discover My Story</b></h2>
-                    </div>
-                    <div className="intro-wrapper">
-                        <div className="nav-wrapper">
-                            <a href="/">
-                                <div className="dots-wrapper">
-                                    <div id="dot-1" className="browser-dot"></div>
-                                    <div id="dot-2" className="browser-dot"></div>
-                                    <div id="dot-3" className="browser-dot"></div>
-                                </div>
-                            </a>
-
-
-                            <ul id="navigation">
-                                <li className="m-r-15"><a href="#project-list">Projects</a></li>
-                                <li ><a href="#contact">Contact</a></li>
-                            </ul>
-                        </div>
-
+            <ThemeBannerSection
+                title="Discover My Story"
+                navLink={navLinks}
+                content={()=>(
+                    <>
                         <div className="left-column">
                             <img id="profile_pic" src={require('../../../resources/images/lalit.jpeg')} alt="profile-img" />
                             <br />
@@ -107,12 +79,11 @@ const Profile = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-            <section className="s2">
-                <div className="main-container">
-
+                    </>
+                )}
+            />
+            <ThemeContentSection
+                content={()=>(
                     <div className="about-wrapper">
                         <div className="about-me">
                             <h4>DISCOVER MORE</h4>
@@ -152,8 +123,8 @@ const Profile = () => {
                         </div>
 
                     </div>
-                </div>
-            </section>
+                )}
+            />
             <section className="s1" id="project-list">
                 <div className="main-container">
                     <h3 className="content-header" id="projects">Recent Projects</h3>
@@ -168,11 +139,11 @@ const Profile = () => {
                                             <h6 className="post-title">{i?.project_name}</h6>
                                             <p className="post-intro">{i?.short_description}</p>
                                             <div className="card-more">
-                                                <a href="/project-detail" onClick={()=>navigate("/project-detail",{
+                                                <button className="link-button" onClick={()=>navigate("/project-detail",{
                                                     state:{
                                                         id:i?.id
                                                     }
-                                                })}>Read More</a>
+                                                })}>Read More</button>
                                             </div>
                                         </div>
                                     </div>
@@ -188,45 +159,8 @@ const Profile = () => {
                     }
                 </div>
             </section>
-            <section className="s2">
-                <div className="main-container">
-                    <h3 className="content-header" id="contact">Get In Touch</h3>
-                    <form id="contact-form">
-                        <label>Name</label>
-                        <input
-                            className="input-field"
-                            type="text"
-                            value={name}
-                            onChange={(e)=>setName(e?.target?.value)}
-                        />
-                        <label>Email</label>
-                        <input
-                            className="input-field"
-                            type="email"
-                            value={email}
-                            onChange={(e)=>setEmail(e?.target?.value)}
-                        />
-                        <label>Description</label>
-                        <textarea
-                            className="input-field"
-                            value={message}
-                            onChange={(e)=>setMessage(e?.target?.value)}
-                        />
-                        <div id="btn-container">
-                            <button id="submit-btn" type="button"
-                                onClick={()=>handleFormSubmit()}
-                            >
-                                Submit
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </section>
-            <section className="s1">
-                <div className="flex-wrapper">
-                    <h3>Find me on LinkedIn <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/lalit-verma-a6460b1a4">click here.</a></h3>
-                </div>
-            </section>
+            <ThemeContactForm/>
+            <ThemeFooterSection/>
         </div>
     )
 };
