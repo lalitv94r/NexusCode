@@ -507,7 +507,7 @@ textarea { resize: vertical; }
 @media screen and (max-width: 400px){
 	#preview-shadow{
 		max-width: 280px;
-		height: 185px;
+		height: 195px;
 		padding-left: 10px;
 		padding-top: 10px;
 	}
