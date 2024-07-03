@@ -1,4 +1,4 @@
-:root{
+ji:root{
 	--mainColor:#eaeaea;
 	--secondaryColor:#fff;
 
@@ -502,7 +502,7 @@ textarea { resize: vertical; }
 	}
 
 	#preview{
-		width: 280px;
+		width: 260px;
 
 	}
 
