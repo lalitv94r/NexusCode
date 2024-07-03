@@ -1,0 +1,7 @@
+.loading-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--borderColor);
+    mix-blend-mode: color-burn;
+}
