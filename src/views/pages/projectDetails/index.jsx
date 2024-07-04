@@ -52,9 +52,30 @@ const ProjectDetail=()=>{
             />
             <ThemeContentSection
                 content={()=>(
-                    <div>
-                        <h4>{project?.project_name}</h4>
-                        <p>{project?.description}</p>
+                    <div className="about-wrapper-content">
+                        <div>
+                            <h4>{project?.project_name}</h4>
+                            <p>{project?.description}</p>
+                        </div>
+                        <div>
+                            <div id="preview-shadow">
+                                <div id="preview">
+                                    <div id="corner-tl" className="corner"></div>
+                                    <div id="corner-tr" className="corner"></div>
+                                    <h3 className="no-extra-space">Technologies & Frameworks</h3>
+                                    <ul>
+                                        {
+                                            project?.tech?.map((i, idx)=>(
+                                                <li key={idx}>{i?.tech_name}</li>
+                                            ))
+                                        }
+                                    </ul>
+                                    <div id="corner-br" className="corner"></div>
+                                    <div id="corner-bl" className="corner"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
                 )}
             />

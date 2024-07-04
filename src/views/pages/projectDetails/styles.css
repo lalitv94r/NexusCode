@@ -10,8 +10,24 @@
 	margin: 0 auto;
 }
 
+.about-wrapper-content{
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    padding-bottom: 50px;
+	padding-top: 50px;
+    gap:100px;
+}
+
+.no-extra-space{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 @media screen and (max-width: 1200px){
 	.main-container-second{
 		width: 100%;
 	}
+    .about-wrapper-content{
+        display: grid;
+    }
 }

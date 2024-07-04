@@ -16,10 +16,11 @@ const ThemeBannerSection = ({
 }) => {
     return (
         <section className="s1">
+            <div className="greeting-wrapper">
+                <h3 className="page-title">{title}</h3>
+            </div>
             <div className="main-container">
-                <div className="greeting-wrapper">
-                    <h2 className="page-title"><b>{title}</b></h2>
-                </div>
+                
                 <div className="intro-wrapper">
                     <div className="nav-wrapper">
                         <a href="/">
