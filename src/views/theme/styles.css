@@ -146,7 +146,7 @@ textarea { resize: vertical; }
 	margin-right: 5px;
 	margin-left:5px;
 	text-transform: uppercase;
-	letter-spacing: 2.33px;
+	letter-spacing: 1px;
 	/* text-shadow: -1px -1px 0px #17a2b8, 1px 1px 0px #17a2b8; */
 }
 
@@ -250,10 +250,10 @@ textarea { resize: vertical; }
 
 .page-title{
 	text-transform: uppercase;
-	text-shadow: -1px -1px 0px #17a2b8, 1px 1px 0px #17a2b8;
-    font-weight: 900;
+	text-shadow: 1px 1px 0px #17a2b8;
+    /* font-weight: 600; */
     color: var(--mainText);
-	letter-spacing: 2.33px;
+	letter-spacing: 1px;
 }
 
 .right-column{
